@@ -1,0 +1,1 @@
+SELECT * FROM recipebook_auth.user;
