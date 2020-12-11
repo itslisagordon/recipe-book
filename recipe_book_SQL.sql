@@ -1,1 +1,1 @@
-SELECT * FROM recipebook_auth.user;
+SELECT * FROM recipebook.user;
