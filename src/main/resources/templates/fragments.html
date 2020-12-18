@@ -5,8 +5,8 @@
 <head th:fragment="head">
 
     <!-- Bootstrap stylesheets and script -->
-    <!--<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />-->
+    <!--<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
+    <link  rel="stylesheet" type="test/css" th:href="@{/recipebook.css}" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
     <title th:text="'Recipe Book'">Recipe Book</title>
@@ -14,18 +14,19 @@
 
 <body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand"></a>
-        </div>
-<!--        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a th:href="@{/add}"></a></li>
-                <li><a th:href="@{/logout}"></a></li>
-            </ul>
-        </div>-->
-    </div>
+<div th:fragment="page-header">
+
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/profile}">Profile</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+        <li>
+            <form th:action="@{/search}" method="post">
+                <input type="text" name="searchTerm">
+                <button>Search</button>
+            </form>
+        </li>
+    </ul>
 </div>
 
 
