@@ -23,6 +23,7 @@ public class SearchController {
         List<User> results = new ArrayList<>();
         results = UserData.findUser(searchTerm, userRepository.findAll());
         model.addAttribute("results", results);
+        model.addAttribute("searchTerm", searchTerm);
         return "search";
     }
 }

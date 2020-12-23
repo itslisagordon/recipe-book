@@ -3,11 +3,10 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 
 <head th:fragment="head">
-
     <!-- Bootstrap stylesheets and script -->
     <!--<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
-    <link  rel="stylesheet" type="test/css" th:href="@{/recipebook.css}" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <link th:href="@{recipebook.css}" rel="stylesheet"/>
+   <!-- <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>-->
 
     <title th:text="'Recipe Book'">Recipe Book</title>
 </head>
@@ -16,9 +15,9 @@
 
 <div th:fragment="page-header">
 
-    <ul>
+    <ul class="nav-links">
         <li><a th:href="@{/}">Home</a></li>
-        <li><a th:href="@{/profile}">Profile</a></li>
+        <li><a th:href="@{/profile}">My Profile</a></li>
         <li><a th:href="@{/logout}">Logout</a></li>
         <li>
             <form th:action="@{/search}" method="post">

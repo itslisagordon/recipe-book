@@ -4,6 +4,8 @@ align-text: right;
 color: red;
 }
 
-ul {
+.nav-links {
 list-style-type: none;
+float: right;
 }
+
