@@ -2,9 +2,49 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>User Profile</title>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-<img src="https://en.gravatar.com/lgofficial94" alt="Profile picture not found" width="200" height="200">
+
+    <center>
+    <table border="1" cellspacing="0" width="1200" height="500" align="center">
+        <tr align="center">
+            <td colspan="2">Recipe Book Navbar</td>
+        </tr>
+        <tr align="center">
+            <td>
+                <img src="https://secure.gravatar.com/avatar/4256abfa50333ffadd62fd8fb70849ad" alt="Profile picture not found" width="200" height="200" style="border-radius: 50%;">
+                <br>
+                <p  th:text="${username}">testing</p>
+<!--                inside <p> tag, say: th:text="user.username"-->
+            </td>
+            <td>
+                <div th:replace="fragments :: favorite-recipe-thumbnail"></div>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                (User Bio)
+                <br>
+                <p th:text="${bio}">Lorem Ipsum</p>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <div th:replace="fragments :: recipe-thumbnail"></div>
+<!--                in td tag: th:each="recipe : ${user.recipes}"-->
+<!--                <table border="1" cellspacing="0" width="500" height="200">-->
+<!--                    <td>Recipe Photo</td>-->
+<!--                    <td>Recipe Details</td>-->
+<!--                </table>-->
+                <br>
+            </td>
+        </tr>
+    </table>
+    </center>
+
 </body>
 </html>
+

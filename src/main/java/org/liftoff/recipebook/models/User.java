@@ -14,6 +14,12 @@ public class User extends AbstractEntity{
     @NotNull
     private String pwHash;
 
+//    private Recipe favoriteRecipe;
+
+    private String profilePicture;
+
+    private String bio;
+
     public User () {}
 
     public User (String username, String password) {
@@ -29,6 +35,22 @@ public class User extends AbstractEntity{
 
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, pwHash);
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
 }
