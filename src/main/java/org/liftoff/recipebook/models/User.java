@@ -4,6 +4,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 @Entity
 public class User extends AbstractEntity{
@@ -14,6 +16,7 @@ public class User extends AbstractEntity{
     @NotNull
     private String pwHash;
 
+//    private ArrayList<Recipe> recipes;
 //    private Recipe favoriteRecipe;
 
     private String profilePicture;
