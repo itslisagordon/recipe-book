@@ -12,8 +12,13 @@ org/liftoff/recipebook/WebApplicationConfig.java
  org.liftoff.recipebook.WebApplicationConfig
 org/liftoff/recipebook/models/data/UserRepository.java
  org.liftoff.recipebook.models.data.UserRepository
+<<<<<<< HEAD
 org/liftoff/recipebook/controllers/ProfileController.java
  org.liftoff.recipebook.controllers.ProfileController
+=======
+org/liftoff/recipebook/controllers/SearchController.java
+ org.liftoff.recipebook.controllers.SearchController
+>>>>>>> navbar
 org/liftoff/recipebook/models/User.java
  org.liftoff.recipebook.models.User
 org/liftoff/recipebook/models/dto/EditProfileDTO.java
@@ -22,3 +27,14 @@ org/liftoff/recipebook/AuthenticationFilter.java
  org.liftoff.recipebook.AuthenticationFilter
 org/liftoff/recipebook/controllers/HomeController.java
  org.liftoff.recipebook.controllers.HomeController
+<<<<<<< HEAD
+=======
+org/liftoff/recipebook/models/UserData.java
+ org.liftoff.recipebook.models.UserData
+org/liftoff/recipebook/models/dto/RegisterFormDTO.java
+ org.liftoff.recipebook.models.dto.RegisterFormDTO
+org/liftoff/recipebook/models/AbstractEntity.java
+ org.liftoff.recipebook.models.AbstractEntity
+org/liftoff/recipebook/models/dto/LoginFormDTO.java
+ org.liftoff.recipebook.models.dto.LoginFormDTO
+>>>>>>> navbar
