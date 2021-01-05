@@ -1,6 +1,5 @@
 package org.liftoff.recipebook.controllers;
 
-
 import org.liftoff.recipebook.models.User;
 import org.liftoff.recipebook.models.data.UserRepository;
 import org.liftoff.recipebook.models.dto.LoginFormDTO;
@@ -18,8 +17,10 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Optional;
 
+
 @Controller
 public class AuthenticationController {
+
 
     @Autowired
     private UserRepository userRepository;
@@ -127,4 +128,5 @@ public class AuthenticationController {
         request.getSession().invalidate();
         return "redirect:/login";
     }
+
 }
