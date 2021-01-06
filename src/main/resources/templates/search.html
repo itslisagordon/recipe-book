@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div>
+    <p th:text="'Search Results for ' + ${searchTerm}"></p>
+    <th:block th:each = "user : ${results}">
+        <p th:text="${user.username}"></p>
+    </th:block>
+</div>
+</body>
+</html>
