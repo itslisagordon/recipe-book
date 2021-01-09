@@ -1,5 +1,5 @@
-org/liftoff/recipebook/RecipebookApplication.java
- org.liftoff.recipebook.RecipebookApplication
+org/liftoff/recipebook/storage/StorageFileNotFoundException.java
+ org.liftoff.recipebook.storage.StorageFileNotFoundException
 org/liftoff/recipebook/models/data/UserRepository.java
  org.liftoff.recipebook.models.data.UserRepository
 org/liftoff/recipebook/models/User.java
@@ -16,13 +16,23 @@ org/liftoff/recipebook/WebApplicationConfig.java
  org.liftoff.recipebook.WebApplicationConfig
 org/liftoff/recipebook/controllers/SearchController.java
  org.liftoff.recipebook.controllers.SearchController
-org/liftoff/recipebook/controllers/ProfileController.java
- org.liftoff.recipebook.controllers.ProfileController
+org/liftoff/recipebook/models/dto/LoginFormDTO.java
+ org.liftoff.recipebook.models.dto.LoginFormDTO
 org/liftoff/recipebook/models/dto/EditProfileDTO.java
  org.liftoff.recipebook.models.dto.EditProfileDTO
 org/liftoff/recipebook/models/dto/RegisterFormDTO.java
  org.liftoff.recipebook.models.dto.RegisterFormDTO
 org/liftoff/recipebook/models/AbstractEntity.java
  org.liftoff.recipebook.models.AbstractEntity
-org/liftoff/recipebook/models/dto/LoginFormDTO.java
- org.liftoff.recipebook.models.dto.LoginFormDTO
+org/liftoff/recipebook/storage/StorageException.java
+ org.liftoff.recipebook.storage.StorageException
+org/liftoff/recipebook/controllers/ProfileController.java
+ org.liftoff.recipebook.controllers.ProfileController
+org/liftoff/recipebook/storage/StorageService.java
+ org.liftoff.recipebook.storage.StorageService
+org/liftoff/recipebook/storage/FileSystemStorageService.java
+ org.liftoff.recipebook.storage.FileSystemStorageService
+org/liftoff/recipebook/storage/StorageProperties.java
+ org.liftoff.recipebook.storage.StorageProperties
+org/liftoff/recipebook/RecipebookApplication.java
+ org.liftoff.recipebook.RecipebookApplication
