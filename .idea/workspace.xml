@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a56dd96-5a9d-4c91-a0cc-162d7c8cdd00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/storage/FileSystemStorageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/storage/StorageException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/storage/StorageFileNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/storage/StorageProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/storage/StorageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadForm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/liftoff/recipebook/FileUploadTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/liftoff/recipebook/RecipebookApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/liftoff/recipebook/RecipebookApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/RecipebookApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/RecipebookApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="7a56dd96-5a9d-4c91-a0cc-162d7c8cdd00" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

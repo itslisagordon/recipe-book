@@ -15,6 +15,27 @@
             <td>
                 <img src="https://secure.gravatar.com/avatar/4256abfa50333ffadd62fd8fb70849ad" alt="Profile picture not found" width="200" height="200" style="border-radius: 50%;">
                 <br>
+                <div th:if="${message}">
+                    <h2 th:text="${message}"/>
+                </div>
+
+                <div>
+                    <form method="POST" enctype="multipart/form-data" action="/">
+                        <table>
+                            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div>
+                    <ul>
+                        <li th:each="file : ${files}">
+                            <a th:href="${file}" th:text="${file}" />
+                        </li>
+                    </ul>
+                </div>
+                <br>
                 <p  th:text="${username}">testing</p>
 <!--                inside <p> tag, say: th:text="user.username"-->
             </td>
