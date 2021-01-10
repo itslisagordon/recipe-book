@@ -46,11 +46,17 @@
         <tr align="center">
             <td colspan="2">
                 <br>
-                <p th:if="${bioExists}" th:text="${bio}">didn't work</p>
-                <form th:unless="${bioExists}">
-                    <label for="bio">Add Bio:</label><br>
-                    <input style="width:200px;font-size:14pt;" type="text" id="bio" name="bio"><br>
-                    <input type="submit" value="Submit">
+                <p th:if="${bioExists}" th:text="${user.bio}">didn't work</p>
+                <form method="post" th:unless="${bioExists}">
+<!--                    <label th:for="bio">Add Bio:</label><br>-->
+<!--                    <input style="width:200px;font-size:14pt;" th:field="${user.bio}" type="text"><br>-->
+                    <div class="form-group">
+                        <label>Add Bio:
+                            <input type="text" class="bio" th:field="${user.bio}" />
+                        </label>
+                        <input type="submit" value="Submit">
+                        <p class="error" th:errors="${user.bio}"></p>
+                    </div>
                 </form>
             </td>
         </tr>

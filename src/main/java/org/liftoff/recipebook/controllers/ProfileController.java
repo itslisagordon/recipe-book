@@ -43,14 +43,18 @@ public class ProfileController {
     @Autowired
     AuthenticationController authenticationController;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping
     public String displayProfile(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = authenticationController.getUserFromSession(session);
         String username = user.getUsername();
         String bio = user.getBio();
+        model.addAttribute("user", user);
         model.addAttribute("username", username);
-        model.addAttribute("bio", bio);
+//        model.addAttribute("bio", bio);
         return "profile";
     }
 
@@ -66,12 +70,13 @@ public class ProfileController {
         return "profile";
     }
 
-    @PostMapping("profile")
-    public String addBio(Model model, HttpServletRequest request, @RequestParam String bio) {
+    @PostMapping
+    public String addBio(Model model, HttpServletRequest request, @ModelAttribute User user, RedirectAttributes ra) {
         HttpSession session = request.getSession();
-        User user = authenticationController.getUserFromSession(session);
-        user.setBio(bio);
-        return "redirect:";
+        User sessionUser = authenticationController.getUserFromSession(session);
+        sessionUser.setBio(user.getBio());
+        userRepository.save(sessionUser);
+        return "profile";
     }
 
     private final StorageService storageService;
@@ -109,7 +114,7 @@ public class ProfileController {
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        return "redirect:/";
+        return "redirect: ";
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
