@@ -11,7 +11,7 @@
 
 <span th:fragment="page-header">
 
-    <ul>
+    <ul class="nav-bar">
         <li style="float:left"><a  th:href="@{/}">Home</a></li>
         <li>
             <form th:action="@{/search}" method="post">
@@ -20,7 +20,7 @@
             </form>
         </li>
         <li><a th:href="@{/logout}">Logout</a></li>
-<!--        <li><a th:href="@{/profile}">My Profile</a></li>-->
+        <li><a th:href="@{/profile}">My Profile</a></li>
     </ul><br>
 </span>
 
