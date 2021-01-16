@@ -2,6 +2,7 @@ package org.liftoff.recipebook.controllers;
 
 import org.liftoff.recipebook.models.User;
 import org.liftoff.recipebook.models.data.UserRepository;
+import org.liftoff.recipebook.storage.FileSystemStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,7 +55,8 @@ public class ProfileController {
         String bio = user.getBio();
         model.addAttribute("user", user);
         model.addAttribute("username", username);
-//        model.addAttribute("bio", bio);
+        model.addAttribute("bio", bio);
+//        model.addAttribute("profilePicture", )
         return "profile";
     }
 
@@ -94,7 +96,7 @@ public class ProfileController {
                         "serveFile", path.getFileName().toString()).build().toUri().toString())
                 .collect(Collectors.toList()));
 
-        return "uploadForm";
+        return "profile";
     }
 
     @GetMapping("/files/{filename:.+}")
@@ -107,13 +109,18 @@ public class ProfileController {
     }
 
     @PostMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request, @ModelAttribute User user,
                                    RedirectAttributes redirectAttributes) {
+
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
+        sessionUser.setProfilePicture(user.getProfilePicture());
+        userRepository.save(sessionUser);
         return "redirect: ";
     }
 

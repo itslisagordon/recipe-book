@@ -20,9 +20,9 @@
                 </div>
 
                 <div>
-                    <form method="POST" enctype="multipart/form-data" action="/">
+                    <form method="POST" enctype="multipart/form-data">
                         <table>
-                            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                            <tr><td>File to upload:</td><td><input type="file" name="file" th:field="${user.profilePicture}" /></td></tr>
                             <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
                         </table>
                     </form>
@@ -46,10 +46,8 @@
         <tr align="center">
             <td colspan="2">
                 <br>
-                <p th:if="${bioExists}" th:text="${user.bio}">didn't work</p>
-                <form method="post" th:unless="${bioExists}">
-<!--                    <label th:for="bio">Add Bio:</label><br>-->
-<!--                    <input style="width:200px;font-size:14pt;" th:field="${user.bio}" type="text"><br>-->
+                <p th:if="${user.bio}" th:text="${user.bio}">didn't work</p>
+                <form method="post" th:unless="${user.bio}">
                     <div class="form-group">
                         <label>Add Bio:
                             <input type="text" class="bio" th:field="${user.bio}" />

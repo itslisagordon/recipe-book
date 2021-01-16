@@ -1,6 +1,7 @@
 package org.liftoff.recipebook.models;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -30,10 +31,11 @@ public class User extends AbstractEntity{
         this.pwHash = encoder.encode(password);
     }
 
-    public User (String username, String password, String bio) {
+    public User (String username, String password, String bio, String profilePicture) {
         this.username = username;
         this.pwHash = encoder.encode(password);
         this.bio = bio;
+        this.profilePicture = profilePicture;
     }
 
     public String getUsername() {

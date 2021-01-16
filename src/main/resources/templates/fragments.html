@@ -28,22 +28,26 @@
 <div th:fragment="recipe-thumbnail" class="recipe-thumbnail">
     <table border="1" cellspacing="0" width="500" height="200">
         <td>
-            <img src="https://previews.123rf.com/images/chat9780/chat97801412/chat9780141200024/34619324-extremely-hot-and-spicy-thai-noodle-square-cropped.jpg" alt="Recipe picture not found" width="200" style="border-radius: 50%;">
+            <img src="https://previews.123rf.com/images/chat9780/chat97801412/chat9780141200024/34619324-extremely-hot-and-spicy-thai-noodle-square-cropped.jpg" alt="Recipe picture not found" width="200">
             <br>
-            <p>th:text = user.getRecipe.name</p>
+            <p>recipe name (this fragment will repeat for each recipe belonging to the user)</p>
         </td>
-        <td>Recipe Details</td>
+        <td>
+            <ul>recipe quick details</ul>
+        </td>
     </table>
 </div>
 
 <div th:fragment="favorite-recipe-thumbnail" class="recipe-thumbnail">
     <table border="1" cellspacing="0" width="500" height="200">
         <td>
-            <img src="https://previews.123rf.com/images/chat9780/chat97801412/chat9780141200024/34619324-extremely-hot-and-spicy-thai-noodle-square-cropped.jpg" alt="Recipe picture not found" width="200" style="border-radius: 50%;">
+            <img src="https://itadakimasuanime.files.wordpress.com/2015/01/ramen-the-rolling-girls-01-01.png" alt="Recipe picture not found" width="200">
             <br>
-            <p>th:text = user.getFavoriteRecipe.name</p>
+            <p>favorite recipe name</p>
         </td>
-        <td>Favorite Recipe Details</td>
+        <td>
+            <ul>favorite recipe quick details</ul>
+        </td>
     </table>
 </div>
 

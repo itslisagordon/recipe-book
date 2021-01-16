@@ -10,6 +10,8 @@
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/controllers/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/liftoff/recipebook/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/recipebook.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/recipebook.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
     </list>
