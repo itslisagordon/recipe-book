@@ -38,7 +38,6 @@ import org.liftoff.recipebook.storage.StorageService;
 
 
 @Controller
-@RequestMapping("profile")
 public class ProfileController {
 
     @Autowired
@@ -47,8 +46,8 @@ public class ProfileController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
-    public String displayProfile(Model model, HttpServletRequest request) {
+    @GetMapping("profile")
+    public String displaySessionProfile(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = authenticationController.getUserFromSession(session);
         String username = user.getUsername();
@@ -60,7 +59,14 @@ public class ProfileController {
         return "profile";
     }
 
-    public String checkBio(Model model, HttpServletRequest request) {
+    @GetMapping("profile/{userId}")
+    public String displayProfile(Model model, @PathVariable int userId) {
+
+        model.addAttribute("profile", userRepository.findById(userId).get());
+        return "profile";
+    }
+
+    public String checkSessionBio(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = authenticationController.getUserFromSession(session);
         String bio = user.getBio();
