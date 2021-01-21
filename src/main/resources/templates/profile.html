@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+
+    <center>
+    <table border="1" cellspacing="0" style="overflow-x:auto;" width="100%" height="500" align="center">
+        <tr align="center">
+            <td>
+                <img src="https://secure.gravatar.com/avatar/4256abfa50333ffadd62fd8fb70849ad" alt="Profile picture not found" width="200" height="200" style="border-radius: 50%;">
+                <br>
+                <div th:if="${message}">
+                    <h2 th:text="${message}"/>
+                </div>
+
+                <div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <table>
+                            <tr><td>File to upload:</td><td><input type="file" name="file" th:field="${user.profilePicture}" /></td></tr>
+                            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div>
+                    <ul>
+                        <li th:each="file : ${files}">
+                            <a th:href="${file}" th:text="${file}" />
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <p  th:text="${username}">testing</p>
+<!--                inside <p> tag, say: th:text="user.username"-->
+            </td>
+            <td>
+                <div th:replace="fragments :: favorite-recipe-thumbnail"></div>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <br>
+                <p th:if="${user.bio}" th:text="${user.bio}">didn't work</p>
+                <form method="post" th:unless="${user.bio}">
+                    <div class="form-group">
+                        <label>Add Bio:
+                            <input type="text" class="bio" th:field="${user.bio}" />
+                        </label>
+                        <input type="submit" value="Submit">
+                        <p class="error" th:errors="${user.bio}"></p>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <div th:replace="fragments :: recipe-thumbnail"></div>
+<!--                in td tag: th:each="recipe : ${user.recipes}"-->
+<!--                <table border="1" cellspacing="0" width="500" height="200">-->
+<!--                    <td>Recipe Photo</td>-->
+<!--                    <td>Recipe Details</td>-->
+<!--                </table>-->
+                <br>
+            </td>
+        </tr>
+    </table>
+    </center>
+
+</body>
+</html>
