@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head th:fragment="head">
     <link th:href="@{css/recipebook.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
     <title th:text="'Recipe Book'">Recipe Book</title>
 </head>
 
 <body>
 
-<span th:fragment="page-header">
-
-    <ul>
-        <li style="float:left"><a  th:href="@{/}">Home</a></li>
-        <li>
-            <form th:action="@{/search}" method="post">
-                <input type="text" name="searchTerm">
-                <button>Search</button>
-            </form>
-        </li>
-        <li><a th:href="@{/logout}">Logout</a></li>
-        <li><a th:href="@{/profile}">My Profile</a></li>
-    </ul><br>
-</span>
-
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a th:href="@{/}" class="navbar-brand"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li><a th:href="@{/profile}">My Profile</a></li>-->
+                <li>
+                    <form th:action="@{/search}" method="post">
+                        <input type="text" name="searchTerm">
+                        <button>Search</button>
+                     </form>
+                </li>
+                <li><a th:href="@{/logout}">logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <div th:fragment="recipe-thumbnail" class="recipe-thumbnail">
     <table border="1" cellspacing="0" width="500" height="200">

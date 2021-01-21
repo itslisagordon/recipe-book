@@ -120,7 +120,8 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:/profile";
+        //change to "redirect:/profile" once profile is set up
+        return "redirect:/index";
     }
 
     @GetMapping("/logout")
