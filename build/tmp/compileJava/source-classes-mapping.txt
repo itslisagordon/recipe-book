@@ -32,7 +32,7 @@ org/liftoff/recipebook/controllers/AuthenticationController.java
  org.liftoff.recipebook.controllers.AuthenticationController
 org/liftoff/recipebook/WebApplicationConfig.java
  org.liftoff.recipebook.WebApplicationConfig
-org/liftoff/recipebook/AuthenticationFilter.java
- org.liftoff.recipebook.AuthenticationFilter
 org/liftoff/recipebook/controllers/ProfileController.java
  org.liftoff.recipebook.controllers.ProfileController
+org/liftoff/recipebook/AuthenticationFilter.java
+ org.liftoff.recipebook.AuthenticationFilter

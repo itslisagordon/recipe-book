@@ -36,7 +36,7 @@
                     </ul>
                 </div>
                 <br>
-                <p  th:text="${username}">testing</p>
+                <p  th:text="${user.username}">testing</p>
 <!--                inside <p> tag, say: th:text="user.username"-->
             </td>
             <td>
@@ -47,15 +47,17 @@
             <td colspan="2">
                 <br>
                 <p th:if="${user.bio}" th:text="${user.bio}">didn't work</p>
-                <form method="post" th:unless="${user.bio}">
-                    <div class="form-group">
-                        <label>Add Bio:
-                            <input type="text" class="bio" th:field="${user.bio}" />
-                        </label>
-                        <input type="submit" value="Submit">
-                        <p class="error" th:errors="${user.bio}"></p>
-                    </div>
-                </form>
+                <div th:if="${isUserInSession}">
+                    <form method="post" th:unless="${user.bio}">
+                        <div class="form-group">
+                            <label>Add Bio:
+                                <input type="text" class="bio" th:field="${user.bio}" />
+                            </label>
+                            <input type="submit" value="Submit">
+                            <p class="error" th:errors="${user.bio}"></p>
+                        </div>
+                    </form>
+                </div>
             </td>
         </tr>
         <tr align="center">
