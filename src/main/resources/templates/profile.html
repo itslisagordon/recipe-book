@@ -36,8 +36,7 @@
                     </ul>
                 </div>
                 <br>
-                <p  th:text="${username}">testing</p>
-<!--                inside <p> tag, say: th:text="user.username"-->
+                <p  th:text="${user.username}">USERNAME</p>
             </td>
             <td>
                 <div th:replace="fragments :: favorite-recipe-thumbnail"></div>
@@ -46,26 +45,23 @@
         <tr align="center">
             <td colspan="2">
                 <br>
-                <p th:if="${user.bio}" th:text="${user.bio}">didn't work</p>
-                <form method="post" th:unless="${user.bio}">
-                    <div class="form-group">
-                        <label>Add Bio:
-                            <input type="text" class="bio" th:field="${user.bio}" />
-                        </label>
-                        <input type="submit" value="Submit">
-                        <p class="error" th:errors="${user.bio}"></p>
-                    </div>
-                </form>
+                <p th:if="${user.bio}" th:text="${user.bio}">BIO</p>
+                <div th:if="${isUserInSession}">
+                    <form method="post" th:unless="${user.bio}">
+                        <div class="form-group">
+                            <label>Add Bio:
+                                <input type="text" class="bio" th:field="${user.bio}" />
+                            </label>
+                            <input type="submit" value="Submit">
+                            <p class="error" th:errors="${user.bio}"></p>
+                        </div>
+                    </form>
+                </div>
             </td>
         </tr>
         <tr align="center">
             <td colspan="2">
                 <div th:replace="fragments :: recipe-thumbnail"></div>
-<!--                in td tag: th:each="recipe : ${user.recipes}"-->
-<!--                <table border="1" cellspacing="0" width="500" height="200">-->
-<!--                    <td>Recipe Photo</td>-->
-<!--                    <td>Recipe Details</td>-->
-<!--                </table>-->
                 <br>
             </td>
         </tr>

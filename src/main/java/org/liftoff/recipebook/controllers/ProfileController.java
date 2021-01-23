@@ -38,6 +38,7 @@ import org.liftoff.recipebook.storage.StorageService;
 
 
 @Controller
+@RequestMapping("profile")
 public class ProfileController {
 
     @Autowired
@@ -46,45 +47,33 @@ public class ProfileController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("profile")
-    public String displaySessionProfile(Model model, HttpServletRequest request) {
+    @GetMapping("/{userId}")
+    public String displayProfile(Model model, @PathVariable int userId, HttpServletRequest request) {
+
+        Boolean isUserInSession = false;
+
         HttpSession session = request.getSession();
-        User user = authenticationController.getUserFromSession(session);
-        String username = user.getUsername();
-        String bio = user.getBio();
+        User sessionUser = authenticationController.getUserFromSession(session);
+
+        User user = userRepository.findById(userId).get();
+
+        if (userId == sessionUser.getId()) {
+            isUserInSession = true;
+        }
+
+        model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
-        model.addAttribute("username", username);
-        model.addAttribute("bio", bio);
-//        model.addAttribute("profilePicture", )
-        return "profile";
-    }
-
-    @GetMapping("profile/{userId}")
-    public String displayProfile(Model model, @PathVariable int userId) {
-
         model.addAttribute("profile", userRepository.findById(userId).get());
         return "profile";
     }
 
-    public String checkSessionBio(Model model, HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        User user = authenticationController.getUserFromSession(session);
-        String bio = user.getBio();
-        boolean bioExists = false;
-        if (!user.getBio().trim().equals("")) {
-            bioExists = true;
-        }
-        model.addAttribute("bioExists", bioExists);
-        return "profile";
-    }
-
-    @PostMapping
+    @PostMapping("/{userId}")
     public String addBio(Model model, HttpServletRequest request, @ModelAttribute User user, RedirectAttributes ra) {
         HttpSession session = request.getSession();
         User sessionUser = authenticationController.getUserFromSession(session);
         sessionUser.setBio(user.getBio());
         userRepository.save(sessionUser);
-        return "profile";
+        return "redirect:/profile/{userId}";
     }
 
     private final StorageService storageService;
