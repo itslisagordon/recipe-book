@@ -47,19 +47,6 @@ public class ProfileController {
     @Autowired
     private UserRepository userRepository;
 
-//    @GetMapping
-//    public String displaySessionProfile(Model model, HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        User user = authenticationController.getUserFromSession(session);
-//        String username = user.getUsername();
-//        String bio = user.getBio();
-//        model.addAttribute("user", user);
-//        model.addAttribute("username", username);
-//        model.addAttribute("bio", bio);
-////        model.addAttribute("profilePicture", )
-//        return "profile";
-//    }
-
     @GetMapping("/{userId}")
     public String displayProfile(Model model, @PathVariable int userId, HttpServletRequest request) {
 
@@ -77,18 +64,6 @@ public class ProfileController {
         model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
         model.addAttribute("profile", userRepository.findById(userId).get());
-        return "profile";
-    }
-
-    public String checkSessionBio(Model model, HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        User user = authenticationController.getUserFromSession(session);
-        String bio = user.getBio();
-        boolean bioExists = false;
-        if (!user.getBio().trim().equals("")) {
-            bioExists = true;
-        }
-        model.addAttribute("bioExists", bioExists);
         return "profile";
     }
 
