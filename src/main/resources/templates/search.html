@@ -6,7 +6,7 @@
 <div>
     <p th:text="'Search Results for ' + ${searchTerm}"></p>
     <th:block th:each = "user : ${results}">
-        <p th:text="${user.username}"></p>
+        <p th:text="${user.username}" th:ref="@'/profile/' + ${user.id}"></p>
     </th:block>
 </div>
 </body>
