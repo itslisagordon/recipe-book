@@ -92,13 +92,13 @@ public class ProfileController {
         return "profile";
     }
 
-    @PostMapping
+    @PostMapping("/{userId}")
     public String addBio(Model model, HttpServletRequest request, @ModelAttribute User user, RedirectAttributes ra) {
         HttpSession session = request.getSession();
         User sessionUser = authenticationController.getUserFromSession(session);
         sessionUser.setBio(user.getBio());
         userRepository.save(sessionUser);
-        return "redirect:/profile";
+        return "redirect:/profile/{userId}";
     }
 
     private final StorageService storageService;
