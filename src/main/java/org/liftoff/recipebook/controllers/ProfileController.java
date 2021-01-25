@@ -25,21 +25,17 @@ public class ProfileController {
     @GetMapping("/{userId}")
     public String displayProfile(Model model, @PathVariable int userId, HttpServletRequest request) {
 
-        Boolean isUserInSession = false;
-
         HttpSession session = request.getSession();
-        User sessionUser = authenticationController.getUserFromSession(session);
-
-
         User user = userRepository.findById(userId).get();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        User sessionUserFromRepo = userRepository.findById(sessionUser.getId()).get();
+        Boolean isUserInSession = false;
 
         if (userId == sessionUser.getId()) {
             isUserInSession = true;
         }
 
-        userId = sessionUser.getId();
-
-
+        model.addAttribute("sessionUser", sessionUserFromRepo);
         model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
         return "profile";
