@@ -1,11 +1,11 @@
 
-ul {
+.nav-bar {
 list-style-type: none;
-background-color: green;
 }
 
-li {
+.nav-bar li {
 float: right;
 display: inline;
+margin-right: 10px;
 }
 
