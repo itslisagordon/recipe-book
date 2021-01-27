@@ -22,5 +22,7 @@ org/liftoff/recipebook/models/User.java
  org.liftoff.recipebook.models.User
 org/liftoff/recipebook/AuthenticationFilter.java
  org.liftoff.recipebook.AuthenticationFilter
+org/liftoff/recipebook/controllers/FragmentsController.java
+ org.liftoff.recipebook.controllers.FragmentsController
 org/liftoff/recipebook/controllers/ProfileController.java
  org.liftoff.recipebook.controllers.ProfileController

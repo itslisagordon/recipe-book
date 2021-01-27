@@ -28,14 +28,12 @@ public class ProfileController {
         HttpSession session = request.getSession();
         User user = userRepository.findById(userId).get();
         User sessionUser = authenticationController.getUserFromSession(session);
-        User sessionUserFromRepo = userRepository.findById(sessionUser.getId()).get();
         Boolean isUserInSession = false;
 
         if (userId == sessionUser.getId()) {
             isUserInSession = true;
         }
 
-        model.addAttribute("sessionUser", sessionUserFromRepo);
         model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
         return "profile";
