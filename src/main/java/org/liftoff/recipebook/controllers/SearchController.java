@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +19,20 @@ public class SearchController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    AuthenticationController authenticationController;
+
     @PostMapping("search")
-    public String displaySearchResults(Model model, @RequestParam String searchTerm){
+    public String displaySearchResults(Model model, @RequestParam String searchTerm, HttpServletRequest request){
 
         List<User> results = new ArrayList<>();
         results = UserData.findUser(searchTerm, userRepository.findAll());
+
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        int userId = sessionUser.getId();
+
+        model.addAttribute("profile", userRepository.findById(userId).get());
         model.addAttribute("results", results);
         model.addAttribute("searchTerm", searchTerm);
         return "search";
