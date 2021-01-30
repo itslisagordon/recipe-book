@@ -34,9 +34,10 @@ public class ProfileController {
             isUserInSession = true;
         }
 
-
         model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
+        model.addAttribute("profile", userRepository.findById(userId).get());
+
         return "profile";
     }
 
