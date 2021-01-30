@@ -1,3 +1,35 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Ekirkman 
+LaunchCodeLiftoffProjects
+/
+recipe-book
+4
+05
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+Wiki
+Security
+Insights
+recipe-book/src/main/resources/templates/fragments.html
+@baltosaxjoe
+baltosaxjoe 'my profile' now works on search page
+Latest commit bf7bb3f 2 days ago
+ History
+ 3 contributors
+@baltosaxjoe@itslisagordon@cbruce913
+58 lines (48 sloc)  1.85 KB
+  
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
@@ -5,8 +37,6 @@
 <head th:fragment="head">
     <link th:href="@{css/recipebook.css}" rel="stylesheet"/>
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-
-
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
     <title th:text="'Flavor Library'">Flavor Library</title>
@@ -25,7 +55,7 @@
             </form>
         </li>
         <li><a th:href="@{/logout}">Logout</a></li>
-        <!--        <li><a th:href="@{'/profile/' + ${profile}}">My Profile</a></li>-->
+        <li><a th:href="@{'/profile/' + ${profile.id}}">My Profile</a></li>
     </ul><br>
 </span>
 
@@ -58,3 +88,15 @@
 
 </body>
 </html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
