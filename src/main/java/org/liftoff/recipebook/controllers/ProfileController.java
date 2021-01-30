@@ -34,6 +34,7 @@ public class ProfileController {
             isUserInSession = true;
         }
 
+
         model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
         return "profile";
@@ -46,5 +47,11 @@ public class ProfileController {
         sessionUser.setBio(user.getBio());
         userRepository.save(sessionUser);
         return "redirect:/profile/{userId}";
+    }
+
+    @PostMapping
+    public String displayLoggedInUserProfile(Model model, @RequestParam int loggedInUserId){
+
+        return "profile/{loggedInUserId}";
     }
 }
