@@ -5,11 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
-/**
- * Created by Chris Bay
- */
 @MappedSuperclass
-public abstract class AbstractEntity  {
+public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue
@@ -23,13 +20,12 @@ public abstract class AbstractEntity  {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AbstractEntity entity = (AbstractEntity) o;
-        return id == entity.id;
+        AbstractEntity that = (AbstractEntity) o;
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-
 }
