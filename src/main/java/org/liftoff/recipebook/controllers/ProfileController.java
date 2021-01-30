@@ -53,4 +53,10 @@ public class ProfileController {
         userRepository.save(sessionUser);
         return "redirect:/profile/{userId}";
     }
+
+    @PostMapping
+    public String displayLoggedInUserProfile(Model model, @RequestParam int loggedInUserId){
+
+        return "profile/{loggedInUserId}";
+    }
 }
