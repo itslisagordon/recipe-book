@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -66,12 +67,35 @@ public class RecipeController {
     return "redirect:";
     }
 
-    //this is just to test the url function.
-    @GetMapping("testpic")
-    public String testPic(Model model){
-       model.addAttribute("recipePic",recipeRepository.findById(80));
-        System.out.print("something");
-        return "testpic";
+//    this is just to test the url function.
+//    @GetMapping("testpic")
+//    public String testPic(Model model){
+//       model.addAttribute("recipePic",recipeRepository.findById(80));
+//        System.out.print("something");
+//        return "testpic";
+//    }
+    @GetMapping("delete")
+    public String displayRemoveRecipe(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        int userId = sessionUser.getId();
+        model.addAttribute("profile", userRepository.findById(userId).get());
+        model.addAttribute("recipesToDelete",recipeRepository.getAllRecipesByUserId(userId));
+        return "delete";
     }
+    @PostMapping("delete")
+    public String removeRecipe(@RequestParam int deleteThis, HttpServletRequest request,
+                               Model model){
+        recipeRepository.deleteById(deleteThis);
+        Boolean isUserInSession = true;
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        User user = userRepository.findById(sessionUser.getId()).get();
+        int userId = sessionUser.getId();
+        model.addAttribute("isUserInSession", isUserInSession);
+        model.addAttribute("user", user);
+        model.addAttribute("profile", userRepository.findById(userId).get());
 
+        return "profile";
+    }
 }
