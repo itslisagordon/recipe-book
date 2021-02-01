@@ -48,13 +48,12 @@ public class RecipeController {
     @PostMapping("CreateRecipe")
     public String createRecipe(@RequestParam String name, Recipe recipe, @RequestParam String description,
                                @RequestParam String hiddenIngredients, @RequestParam RecipeCategory category,
-                               @RequestParam String imageUrl, HttpSession session){
+                               @RequestParam String imageUrl, HttpSession session,Model model){
 
 
         //Get the userId from the session
         int currentUserId = (int) session.getAttribute("user");
 
-     System.out.print(currentUserId);
 
         //save the recipe to th database
         recipe.setUserId(currentUserId);
@@ -64,16 +63,14 @@ public class RecipeController {
         recipe.setIngredients(hiddenIngredients);
         recipe.setCategory(category);
         recipeRepository.save(recipe);
-    return "redirect:";
+        User user = userRepository.findById(currentUserId).get();
+        model.addAttribute("profile", userRepository.findById(currentUserId).get());
+        model.addAttribute("user", user);
+
+    return "profile";
     }
 
-//    this is just to test the url function.
-//    @GetMapping("testpic")
-//    public String testPic(Model model){
-//       model.addAttribute("recipePic",recipeRepository.findById(80));
-//        System.out.print("something");
-//        return "testpic";
-//    }
+
     @GetMapping("delete")
     public String displayRemoveRecipe(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -87,12 +84,10 @@ public class RecipeController {
     public String removeRecipe(@RequestParam int deleteThis, HttpServletRequest request,
                                Model model){
         recipeRepository.deleteById(deleteThis);
-        Boolean isUserInSession = true;
         HttpSession session = request.getSession();
         User sessionUser = authenticationController.getUserFromSession(session);
         User user = userRepository.findById(sessionUser.getId()).get();
         int userId = sessionUser.getId();
-        model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
         model.addAttribute("profile", userRepository.findById(userId).get());
 
