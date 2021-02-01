@@ -42,6 +42,6 @@ public class RecipeCategoryController {
     public String createCreateCategory(@RequestParam String name, Model model, RecipeCategory recipeCategory) {
         recipeCategory.setName(name);
         recipeCategoryRepository.save(recipeCategory);
-        return "index";
+        return "redirect:";
     }
 }
