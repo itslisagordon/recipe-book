@@ -15,33 +15,32 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-
 public class RecipeController {
+
     @Autowired
     private RecipeRepository recipeRepository;
 
     @Autowired
     private RecipeCategoryRepository recipeCategoryRepository;
 
-    @GetMapping("CreateRecipe")
+    @GetMapping("/create-recipe")
     public String renderCreateRecipeForm(Model model){
         model.addAttribute("recipe",new Recipe());
         model.addAttribute("categories", recipeCategoryRepository.findAll());
-        return "CreateRecipe";
+        return "create-recipe";
     }
 
-    @PostMapping("CreateRecipe")
+    @PostMapping("/create-recipe")
     public String createRecipe(@RequestParam String name, Recipe recipe, @RequestParam String description,
                                @RequestParam String hiddenIngredients, @RequestParam RecipeCategory category,
                                @RequestParam String imageUrl, HttpSession session){
 
-
         //Get the userId from the session
         int currentUserId = (int) session.getAttribute("user");
 
-     System.out.print(currentUserId);
+        System.out.print(currentUserId);
 
-        //save the recipe to th database
+        //save the recipe to the database
         recipe.setUserId(currentUserId);
         recipe.setImageUrl(imageUrl);
         recipe.setName(name);
@@ -49,15 +48,6 @@ public class RecipeController {
         recipe.setIngredients(hiddenIngredients);
         recipe.setCategory(category);
         recipeRepository.save(recipe);
-    return "redirect:";
+        return "redirect:";
     }
-
-    //this is just to test the url function.
-    @GetMapping("testpic")
-    public String testPic(Model model){
-       model.addAttribute("recipePic",recipeRepository.findById(80));
-        System.out.print("something");
-        return "testpic";
-    }
-
 }

@@ -10,25 +10,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.liftoff.recipebook.models.data.RecipeCategoryRepository;
 
 
-
-
-
 @Controller
-
 public class RecipeCategoryController {
 
     @Autowired
     private RecipeCategoryRepository recipeCategoryRepository;
 
-    @GetMapping("createCategory")
+    @GetMapping("/create-category")
     public String displayCreateCategory() {
-        return "createCategory";
+        return "create-category";
     }
 
-    @PostMapping("createCategory")
+    @PostMapping("/create-category")
     public String createCreateCategory(@RequestParam String name, Model model, RecipeCategory recipeCategory) {
         recipeCategory.setName(name);
         recipeCategoryRepository.save(recipeCategory);
-        return "index";
+        return "create-recipe";
     }
 }
