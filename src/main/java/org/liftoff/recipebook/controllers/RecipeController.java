@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 
-public class  RecipeController {
+public class RecipeController {
     @Autowired
     private RecipeRepository recipeRepository;
 
