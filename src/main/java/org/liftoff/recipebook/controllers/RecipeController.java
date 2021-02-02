@@ -67,7 +67,7 @@ public class RecipeController {
         model.addAttribute("profile", userRepository.findById(currentUserId).get());
         model.addAttribute("user", user);
 
-    return "profile";
+    return "view";
     }
 
 
