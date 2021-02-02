@@ -53,8 +53,6 @@ public class RecipeController {
         //Get the userId from the session
         int currentUserId = (int) session.getAttribute("user");
 
-        System.out.print(currentUserId);
-
         //save the recipe to the database
         recipe.setUserId(currentUserId);
         recipe.setImageUrl(imageUrl);
