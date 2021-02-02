@@ -2,7 +2,6 @@ package org.liftoff.recipebook.controllers;
 
 import org.liftoff.recipebook.models.RecipeCategory;
 import org.liftoff.recipebook.models.User;
-import org.liftoff.recipebook.models.data.RecipeCategoryRepository;
 import org.liftoff.recipebook.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.liftoff.recipebook.models.data.RecipeCategoryRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,7 +27,7 @@ public class RecipeCategoryController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/create-category")
+    @GetMapping("createCategory")
     public String displayCreateCategory(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         User sessionUser = authenticationController.getUserFromSession(session);
