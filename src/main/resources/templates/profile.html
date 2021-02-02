@@ -10,8 +10,7 @@
             <tr align="center">
                 <td>
                     <img src="https://secure.gravatar.com/avatar/4256abfa50333ffadd62fd8fb70849ad" alt="Profile picture not found" width="200" height="200" style="border-radius: 50%;">
-
-                    <p  th:text="${user.username}">USERNAME</p>
+                    <p th:text="${user.username}">USERNAME</p>
                 </td>
                 <td>
                     <div th:replace="fragments :: favorite-recipe-thumbnail"></div>
@@ -38,6 +37,12 @@
                 <td colspan="2">
                     <div th:replace="fragments :: recipe-thumbnail"></div>
                     <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a th:href="@{/create-recipe}">Create-a-Recipe</a>
+                    <a th:href="@{/delete}">Delete-a-Recipe</a>
                 </td>
             </tr>
         </tbody>

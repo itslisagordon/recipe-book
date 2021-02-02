@@ -15,7 +15,7 @@
 <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a th:href="@{/index}" class="navbar-brand">Flavor Library</a>
+            <a th:href="@{/}" class="navbar-brand">Flavor Library</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -26,13 +26,15 @@
                         <button>Search</button>
                     </form>
                 </li>
+                <li><a th:href="@{/CreateRecipe}">Create a Recipe</a></li>
+                <li><a th:href="@{/delete}">Delete a Recipe</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul><br>
         </div>
     </div>
 </div>
-<!--<span th:fragment="page-header">-->
 
+<!--<span th:fragment="page-header">-->
 <!--    <ul class="nav-bar">-->
 <!--        <li style="float:left"><a  th:href="@{/}">Home</a></li>-->
 <!--        <li>-->
