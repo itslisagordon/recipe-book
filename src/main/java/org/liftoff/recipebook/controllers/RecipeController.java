@@ -61,6 +61,6 @@ public class RecipeController {
         recipe.setIngredients(hiddenIngredients);
         recipe.setCategory(category);
         recipeRepository.save(recipe);
-        return "redirect:/profile/{userId}";
+        return "view";
     }
 }
