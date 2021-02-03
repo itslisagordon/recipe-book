@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class UserData {
 
-    public static ArrayList<User> findUser(String value, Iterable<User> allUsers) {
+    public static ArrayList<User> findUser(String usernameCheck, Iterable<User> allUsers) {
 
-        ArrayList<User> results = new ArrayList<>();
+        ArrayList<User> currentUser = new ArrayList<>();
 
-        String lower_val = value.toLowerCase();
+        String username = usernameCheck.toLowerCase();
 
         for (User user : allUsers) {
 
-            if (user.getUsername().toLowerCase().contains(lower_val)) {
-                results.add(user);
+            if (user.getUsername().toLowerCase().contains(username)) {
+                currentUser.add(user);
 
             }
         }
-        return results;
+        return currentUser;
     }
 }
