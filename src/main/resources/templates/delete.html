@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head"></head>
     <nav th:replace="fragments :: page-header"></nav>
 </head>
-<body>
+<body class="container body-content">
 <h1>Choose a recipe to delete:</h1>
     <form method="post">
         <tr th:each="recipe : ${recipesToDelete} ">
