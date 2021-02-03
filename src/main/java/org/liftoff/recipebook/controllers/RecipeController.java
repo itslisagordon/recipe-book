@@ -18,9 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
-@Controller
 
+@Controller
 public class RecipeController {
+
     @Autowired
     private RecipeRepository recipeRepository;
 
@@ -33,7 +34,7 @@ public class RecipeController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("CreateRecipe")
+    @GetMapping("create-recipe")
     public String renderCreateRecipeForm(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         User sessionUser = authenticationController.getUserFromSession(session);
@@ -42,18 +43,16 @@ public class RecipeController {
         model.addAttribute("recipe",new Recipe());
         model.addAttribute("categories", recipeCategoryRepository.findAll());
         model.addAttribute("profile", userRepository.findById(userId).get());
-        return "CreateRecipe";
+        return "create-recipe";
     }
 
-    @PostMapping("CreateRecipe")
+    @PostMapping("/create-recipe")
     public String createRecipe(@RequestParam String name, Recipe recipe, @RequestParam String description,
                                @RequestParam String hiddenIngredients, @RequestParam RecipeCategory category,
                                @RequestParam String imageUrl, HttpSession session,Model model){
 
-
         //Get the userId from the session
         int currentUserId = (int) session.getAttribute("user");
-
 
         //save the recipe to the database
         recipe.setUserId(currentUserId);
@@ -67,7 +66,7 @@ public class RecipeController {
         model.addAttribute("profile", userRepository.findById(currentUserId).get());
         model.addAttribute("user", user);
 
-    return "view";
+        return "view";
     }
 
 
@@ -80,6 +79,7 @@ public class RecipeController {
         model.addAttribute("recipesToDelete",recipeRepository.getAllRecipesByUserId(userId));
         return "delete";
     }
+    
     @PostMapping("delete")
     public String removeRecipe(@RequestParam int deleteThis, HttpServletRequest request,
                                Model model){

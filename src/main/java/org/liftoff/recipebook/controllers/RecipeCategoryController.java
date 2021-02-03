@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-
 public class RecipeCategoryController {
 
     @Autowired
@@ -35,13 +34,13 @@ public class RecipeCategoryController {
         int userId = sessionUser.getId();
 
         model.addAttribute("profile", userRepository.findById(userId).get());
-        return "createCategory";
+        return "create-category";
     }
 
-    @PostMapping("createCategory")
+    @PostMapping("/create-category")
     public String createCreateCategory(@RequestParam String name, Model model, RecipeCategory recipeCategory) {
         recipeCategory.setName(name);
         recipeCategoryRepository.save(recipeCategory);
-        return "redirect:";
+        return "redirect:/create-recipe";
     }
 }

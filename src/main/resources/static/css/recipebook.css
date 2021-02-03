@@ -1,11 +1,18 @@
+.body-content {
+    margin-top: 72px;
+}
+
+.search-bar{
+    padding-top: 10px;
+}
 
 .nav-bar {
-list-style-type: none;
+    list-style-type: none;
 }
 
 .nav-bar li {
-float: right;
-display: inline;
-margin-right: 10px;
+    float: right;
+    display: inline;
+    margin-right: 10px;
 }
 
