@@ -27,7 +27,7 @@ public class RecipeCategoryController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("createCategory")
+    @GetMapping("create-category")
     public String displayCreateCategory(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         User sessionUser = authenticationController.getUserFromSession(session);

@@ -57,25 +57,26 @@
         </td>
         <td>
             <ul>
-                <li th:text="${recipe.}"></li>
+                <p th:text="'Category:' + ${recipe.category.name}"></p>
+                <p th:text="'Prep Time:' + ${recipe.prepTime}"></p>
             </ul>
         </td>
     </table>
 </div>
 
 
-<div th:fragment="favorite-recipe-thumbnail" class="recipe-thumbnail">
-    <table border="1" cellspacing="0" width="500" height="200">
-        <td>
-            <img src="https://itadakimasuanime.files.wordpress.com/2015/01/ramen-the-rolling-girls-01-01.png" alt="Recipe picture not found" width="200">
-            <br>
-            <p>favorite recipe name</p>
-        </td>
-        <td>
-            <ul>favorite recipe quick details</ul>
-        </td>
-    </table>
-</div>
+<!--<div th:if="${user.favoriteRecipe}" th:fragment="favorite-recipe-thumbnail" class="recipe-thumbnail">-->
+<!--    <table border="1" cellspacing="0" width="500" height="200">-->
+<!--        <td>-->
+<!--            <img src="https://itadakimasuanime.files.wordpress.com/2015/01/ramen-the-rolling-girls-01-01.png" alt="Recipe picture not found" width="200">-->
+<!--            <br>-->
+<!--            <p>favorite recipe name</p>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <ul>favorite recipe quick details</ul>-->
+<!--        </td>-->
+<!--    </table>-->
+<!--</div>-->
 
 </body>
 </html>

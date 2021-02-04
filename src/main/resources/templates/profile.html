@@ -10,12 +10,12 @@
         <tbody id="profile">
             <tr align="center">
                 <td>
-                    <img src="https://secure.gravatar.com/avatar/4256abfa50333ffadd62fd8fb70849ad" alt="Profile picture not found" width="200" height="200" style="border-radius: 50%;">
+                    <img th:src="${user.profilePicture}" alt="Profile picture not found" width="200">
                     <p th:text="${user.username}">USERNAME</p>
-                    <a th:href="@{/add-profile-picture}">Change Profile Picture</a>
+                    <a th:if="${isUserInSession}" th:href="@{/add-profile-picture}">Change Profile Picture</a>
                 </td>
                 <td>
-                    <div th:replace="fragments :: favorite-recipe-thumbnail"></div>
+<!--                    <div th:replace="fragments :: favorite-recipe-thumbnail"></div>-->
                 </td>
             </tr>
             <tr align="center">

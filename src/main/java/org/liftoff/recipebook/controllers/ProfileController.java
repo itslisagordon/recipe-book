@@ -40,6 +40,7 @@ public class ProfileController {
             isUserInSession = true;
         }
 
+        model.addAttribute("profilePicture", user.getProfilePicture());
         model.addAttribute("isUserInSession", isUserInSession);
         model.addAttribute("user", user);
         model.addAttribute("profile", userRepository.findById(userId).get());
