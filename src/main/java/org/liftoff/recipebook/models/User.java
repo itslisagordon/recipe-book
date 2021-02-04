@@ -23,7 +23,7 @@ public class User extends AbstractEntity{
 
     private String bio;
 
-    private Recipe favoriteRecipe;
+//    private Recipe favoriteRecipe;
 
     public User () {}
 
@@ -37,7 +37,7 @@ public class User extends AbstractEntity{
         this.pwHash = encoder.encode(password);
         this.bio = bio;
         this.profilePicture = profilePicture;
-        this.favoriteRecipe = favoriteRecipe;
+//        this.favoriteRecipe = favoriteRecipe;
     }
 
     public String getUsername() {
