@@ -30,11 +30,11 @@ org/liftoff/recipebook/controllers/SearchController.java
  org.liftoff.recipebook.controllers.SearchController
 org/liftoff/recipebook/models/dto/LoginFormDTO.java
  org.liftoff.recipebook.models.dto.LoginFormDTO
-org/liftoff/recipebook/controllers/ProfileController.java
- org.liftoff.recipebook.controllers.ProfileController
+org/liftoff/recipebook/controllers/ViewController.java
+ org.liftoff.recipebook.controllers.ViewController
 org/liftoff/recipebook/models/data/RecipeRepository.java
  org.liftoff.recipebook.models.data.RecipeRepository
 org/liftoff/recipebook/controllers/RecipeController.java
  org.liftoff.recipebook.controllers.RecipeController
-org/liftoff/recipebook/controllers/ViewController.java
- org.liftoff.recipebook.controllers.ViewController
+org/liftoff/recipebook/controllers/ProfileController.java
+ org.liftoff.recipebook.controllers.ProfileController

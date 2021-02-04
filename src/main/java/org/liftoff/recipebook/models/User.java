@@ -23,6 +23,8 @@ public class User extends AbstractEntity{
 
     private String bio;
 
+    private Recipe favoriteRecipe;
+
     public User () {}
 
     public User (String username, String password) {
@@ -30,11 +32,12 @@ public class User extends AbstractEntity{
         this.pwHash = encoder.encode(password);
     }
 
-    public User (String username, String password, String bio, String profilePicture) {
+    public User (String username, String password, String bio, String profilePicture, Recipe favoriteRecipe) {
         this.username = username;
         this.pwHash = encoder.encode(password);
         this.bio = bio;
         this.profilePicture = profilePicture;
+        this.favoriteRecipe = favoriteRecipe;
     }
 
     public String getUsername() {
