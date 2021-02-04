@@ -14,6 +14,7 @@ public class Recipe extends AbstractEntity{
     private String name;
     private String description;
     private String ingredients;
+    private String prepTime;
 
 
     @ManyToOne
@@ -79,5 +80,13 @@ public class Recipe extends AbstractEntity{
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getPrepTime() {
+        return prepTime;
+    }
+
+    public void setPrepTime(String prepTime) {
+        this.prepTime = prepTime;
     }
 }
