@@ -68,6 +68,10 @@ public class RecipeController {
         model.addAttribute("profile", userRepository.findById(currentUserId).get());
         model.addAttribute("user", user);
 
+        //split's the string of ingredients to be sent to the view page
+        String[] myIngredients = recipe.getIngredients().split("\\$\\$");
+        model.addAttribute("myIngredients",myIngredients);
+
         return "view";
     }
 
