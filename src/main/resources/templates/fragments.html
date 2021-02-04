@@ -53,10 +53,12 @@
         <td>
             <img th:src="${recipe.imageUrl}" width="200">
             <br>
-            <p th:text="${recipe.name}">recipe name (this fragment will repeat for each recipe belonging to the user)</p>
+            <p th:text="${recipe.name}">recipe name</p>
         </td>
         <td>
-            <ul>recipe quick details</ul>
+            <ul>
+                <li th:text="${recipe.}"></li>
+            </ul>
         </td>
     </table>
 </div>

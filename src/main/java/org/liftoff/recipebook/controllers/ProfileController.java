@@ -36,9 +36,6 @@ public class ProfileController {
         User sessionUser = authenticationController.getUserFromSession(session);
         Boolean isUserInSession = false;
 
-        Iterable<Recipe> userRecipes = recipeRepository.getAllRecipesByUserId(userId);
-        
-
         if (userId == sessionUser.getId()) {
             isUserInSession = true;
         }
@@ -47,7 +44,6 @@ public class ProfileController {
         model.addAttribute("user", user);
         model.addAttribute("profile", userRepository.findById(userId).get());
         model.addAttribute("userRecipes", recipeRepository.getAllRecipesByUserId(userId));
-
 
         return "profile";
     }
