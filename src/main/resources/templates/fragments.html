@@ -48,12 +48,12 @@
 <!--    </ul><br>-->
 <!--</span>-->
 
-<div th:fragment="recipe-thumbnail" class="recipe-thumbnail">
+<div th:each="recipe : ${userRecipes}" th:fragment="recipe-thumbnail" class="recipe-thumbnail">
     <table border="1" cellspacing="0" width="500" height="200">
         <td>
-            <img src="https://previews.123rf.com/images/chat9780/chat97801412/chat9780141200024/34619324-extremely-hot-and-spicy-thai-noodle-square-cropped.jpg" alt="Recipe picture not found" width="200">
+            <img th:src="${recipe.imageUrl}" width="200">
             <br>
-            <p>recipe name (this fragment will repeat for each recipe belonging to the user)</p>
+            <p th:text="${recipe.name}">recipe name (this fragment will repeat for each recipe belonging to the user)</p>
         </td>
         <td>
             <ul>recipe quick details</ul>
