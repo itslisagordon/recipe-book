@@ -41,6 +41,11 @@
         </label>
     </div>
     <div>
+        <label>Prep Time:
+            <input name="prepTime" class="form-control" th:text="${editThisRecipe.prepTime}"/>
+        </label>
+    </div>
+    <div>
         <label>Category
             <select name="category">
                 <option th:each="category : ${categories}"

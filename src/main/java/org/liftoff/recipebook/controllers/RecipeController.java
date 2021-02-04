@@ -131,7 +131,7 @@ public class RecipeController {
     public String saveEditedRecipe(@RequestParam String name, @RequestParam String description,
                                    @RequestParam String hiddenIngredients, @RequestParam RecipeCategory category,
                                    @RequestParam String imageUrl, @RequestParam String oldRecipeId,
-                                   @RequestParam(defaultValue = "") String originalIngredients, Model model,
+                                   @RequestParam String prepTime, @RequestParam(defaultValue = "") String originalIngredients, Model model,
                                    HttpServletRequest request) {
 
         String addedIngredients = hiddenIngredients;
@@ -164,6 +164,7 @@ public class RecipeController {
             recipeBeingEdited.setImageUrl(imageUrl);
         }
 
+        recipeBeingEdited.setPrepTime(prepTime);
         recipeBeingEdited.setName(name);
         recipeBeingEdited.setDescription(description.trim());//added .trim() to get rid of unnecessary white space
         recipeBeingEdited.setCategory(category);
