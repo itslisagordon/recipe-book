@@ -49,12 +49,14 @@ public class RecipeController {
     @PostMapping("/create-recipe")
     public String createRecipe(@RequestParam String name, Recipe recipe, @RequestParam String description,
                                @RequestParam String hiddenIngredients, @RequestParam RecipeCategory category,
-                               @RequestParam String imageUrl, HttpSession session,Model model){
+                               @RequestParam String imageUrl, @RequestParam String prepTime,
+                               HttpSession session,Model model){
 
         //Get the userId from the session
         int currentUserId = (int) session.getAttribute("user");
 
         //save the recipe to the database
+        recipe.setPrepTime(prepTime);
         recipe.setUserId(currentUserId);
         recipe.setImageUrl(imageUrl);
         recipe.setName(name);
