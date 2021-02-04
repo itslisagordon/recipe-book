@@ -10,18 +10,10 @@
         <tbody id="profile">
             <tr align="center">
                 <td>
-                    <img th:src="${user.profilePicture}" alt="Profile picture not found" width="200">
+                    <img th:src="${user.profilePicture}" width="250" onerror="this.src = 'https://www.indianewsstream.com/wp-content/uploads/2019/07/2205256774854474505_medium.jpg';">
                     <p th:text="${user.username}">USERNAME</p>
                     <a th:if="${isUserInSession}" th:href="@{/add-profile-picture}">Change Profile Picture</a>
-                </td>
-                <td>
-<!--                    <div th:replace="fragments :: favorite-recipe-thumbnail"></div>-->
-                </td>
-            </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <br>
-                    <p th:if="${user.bio}" th:text="${user.bio}">BIO</p>
+                    <i><p th:if="${user.bio}" th:text="${user.bio}">BIO</p></i>
                     <div th:if="${isUserInSession}">
                         <form method="post" th:unless="${user.bio}">
                             <div class="form-group">
@@ -34,14 +26,35 @@
                         </form>
                     </div>
                 </td>
+                <td>
+<!--                    <div th:replace="fragments :: favorite-recipe-thumbnail"></div>-->
+                </td>
             </tr>
             <tr align="center">
                 <td colspan="2">
+                    <br>
+<!--                    <i><p th:if="${user.bio}" th:text="${user.bio}">BIO</p></i>-->
+<!--                    <div th:if="${isUserInSession}">-->
+<!--                        <form method="post" th:unless="${user.bio}">-->
+<!--                            <div class="form-group">-->
+<!--                                <label>Add Bio:-->
+<!--                                    <input type="text" class="bio" th:field="${user.bio}" />-->
+<!--                                </label>-->
+<!--                                <input type="submit" value="Submit">-->
+<!--                                <p class="error" th:errors="${user.bio}"></p>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <p>My Recipes</p>
                     <div th:replace="fragments :: recipe-thumbnail"></div>
                     <br>
                 </td>
             </tr>
-            <tr>
+            <tr align="center">
                 <td>
                     <a th:href="@{/create-recipe}">Create-a-Recipe</a>
                     <a th:href="@{/delete}">Delete-a-Recipe</a>
