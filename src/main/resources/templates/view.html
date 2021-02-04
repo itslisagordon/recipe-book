@@ -7,7 +7,8 @@
 
 <h1 th:text="${recipe.name}">Default Title</h1>
 <div>
-    <img src="${recipe.imageUrl}"> <br>
+    <img th:src="${recipe.imageUrl}" width="320" height="320" onerror="this.onerror=null; this.src='../images/meal-placeholder.jpg'" > <br>
+
 </div>
 
 <div class="view-recipe">
