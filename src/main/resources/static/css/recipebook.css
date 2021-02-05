@@ -16,3 +16,23 @@
     margin-right: 10px;
 }
 
+#profile-body {
+ font-family: Arial, Helvetica, sans-serif;
+}
+
+#change-profile-picture-link {
+  font-size: 10px;
+}
+
+#username {
+font-size:25px;
+}
+
+#my-recipes {
+font-size: 20px;
+}
+
+#recipe-name {
+ text-align: center;
+ font-size:15px;
+}

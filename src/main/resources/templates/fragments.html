@@ -53,12 +53,12 @@
         <td>
             <img th:src="${recipe.imageUrl}" width="200">
             <br>
-            <p th:text="${recipe.name}">recipe name</p>
+            <p id="recipe-name" th:text="${recipe.name}">No Name To Show</p>
         </td>
         <td>
             <ul>
-                <p th:text="'Category: ' + ${recipe.category.name}"></p>
-                <p th:text="'Prep Time: ' + ${recipe.prepTime}"></p>
+                <p class="recipe-details" th:text="'Category: ' + ${recipe.category.name}">No Category To Show</p>
+                <p class="recipe-details" th:text="'Prep Time: ' + ${recipe.prepTime}">No Prep Time To Show</p>
             </ul>
         </td>
     </table>
