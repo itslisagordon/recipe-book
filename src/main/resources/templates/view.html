@@ -7,13 +7,15 @@
 
 <h1 th:text="${recipe.name}">Default Title</h1>
 <div>
-    <img src="${recipe.imageUrl}"> <br>
+    <img th:src="${recipe.imageUrl}" width="320" height="320" onerror="this.onerror=null; this.src='../images/meal-placeholder.jpg'" > <br>
+
 </div>
 
 <div class="view-recipe">
     <p th:text="'Prep Time: ' + ${recipe.prepTime}"></p>
     <p th:text="'Category: ' + ${recipe.category.name}"></p>
-    <ul th:text="'Ingredients: ' + ${recipe.ingredients}"></ul>
+    <p th:text="Ingredients":/>
+    <li th:each="ingredient: ${myIngredients}" th:text="${ingredient}"></li>
     <p th:text="'Instructions: ' + ${recipe.description}"></p>
 
 </div>

@@ -68,6 +68,10 @@ public class RecipeController {
         model.addAttribute("profile", userRepository.findById(currentUserId).get());
         model.addAttribute("user", user);
 
+        //split's the string of ingredients to be sent to the view page
+        String[] myIngredients = recipe.getIngredients().split("\\$\\$");
+        model.addAttribute("myIngredients",myIngredients);
+
         return "view";
     }
 
@@ -93,5 +97,83 @@ public class RecipeController {
         model.addAttribute("user", user);
         model.addAttribute("profile", userRepository.findById(userId).get());
         return "profile";
+    }
+
+    @GetMapping("edit-recipe")
+    public String displayChooseARecipeToEdit(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        int userId = sessionUser.getId();
+        model.addAttribute("profile", userRepository.findById(userId).get());
+        model.addAttribute("recipesToEdit",recipeRepository.getAllRecipesByUserId(userId));
+        return "edit-recipe";
+    }
+    @PostMapping("edit-recipe")
+    public String displayEditRecipeForm(@RequestParam int editThis, HttpServletRequest request,
+                                        Model model){
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        User user = userRepository.findById(sessionUser.getId()).get();
+        int userId = sessionUser.getId();
+        Recipe needToSplit = recipeRepository.findById(editThis);
+
+        //split's the string of ingredients to be sent to the edit form
+        String[] currentIngredients = needToSplit.getIngredients().split("\\$\\$");
+        model.addAttribute("user", user);
+        model.addAttribute("profile", userRepository.findById(userId).get());
+        model.addAttribute("editThisRecipe",recipeRepository.findById(editThis));
+        model.addAttribute("categories", recipeCategoryRepository.findAll());
+        model.addAttribute("currentIngredients",currentIngredients);
+
+        return "edit-recipe-form";
+    }
+    @PostMapping("saveEditedRecipe")
+    public String saveEditedRecipe(@RequestParam String name, @RequestParam String description,
+                                   @RequestParam String hiddenIngredients, @RequestParam RecipeCategory category,
+                                   @RequestParam String imageUrl, @RequestParam String oldRecipeId,
+                                   @RequestParam String prepTime, @RequestParam(defaultValue = "") String originalIngredients, Model model,
+                                   HttpServletRequest request) {
+
+        String addedIngredients = hiddenIngredients;
+        String oldIngredients = originalIngredients;
+        String temporaryIngredients;
+        String finalIngredients;
+
+        HttpSession session = request.getSession();
+        User sessionUser = authenticationController.getUserFromSession(session);
+        User user = userRepository.findById(sessionUser.getId()).get();
+        int userId = sessionUser.getId();
+        model.addAttribute("profile", userRepository.findById(userId).get());
+
+
+        int i = Integer.parseInt(oldRecipeId);
+        Recipe recipeBeingEdited = recipeRepository.findById(i);
+
+
+        if(!oldIngredients.equals("")){temporaryIngredients = oldIngredients.replace(",","$$");
+            finalIngredients = temporaryIngredients.concat("$$"+addedIngredients);
+            recipeBeingEdited.setIngredients(finalIngredients.trim());
+        }
+
+        if(oldIngredients.equals("")){
+            recipeBeingEdited.setIngredients(addedIngredients.trim());
+        }
+
+
+        if(!imageUrl.trim().equals("")){
+            recipeBeingEdited.setImageUrl(imageUrl);
+        }
+
+        recipeBeingEdited.setPrepTime(prepTime);
+        recipeBeingEdited.setName(name);
+        recipeBeingEdited.setDescription(description.trim());//added .trim() to get rid of unnecessary white space
+        recipeBeingEdited.setCategory(category);
+        recipeRepository.save(recipeBeingEdited);
+
+
+        String[] myIngredients = recipeBeingEdited.getIngredients().split("\\$\\$");
+        model.addAttribute("myIngredients",myIngredients);
+        model.addAttribute("recipe",recipeBeingEdited);
+        return "view";
     }
 }
